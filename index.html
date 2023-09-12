@@ -20,11 +20,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+  
 </head>
 
 <body>
@@ -99,6 +105,152 @@
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="col-12">
+                    
+                    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#userInsertModal">
+                        + New User
+                      </button>
+                        <!-- User insert Modal-->
+
+                        <div class="modal fade" id="userInsertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Create New User</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="field-1" class="control-label">Name</label>
+                                                    <input type="text" class="form-control" name="name" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="field-2" class="control-label">Surname</label>
+                                                    <input type="text" class="form-control" name="surname" placeholder="">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group no-margin">
+                                                    <label for="field-7" class="control-label">Email</label>
+                                                    <input type="email" class="form-control" name="email" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group no-margin">
+                                                    <label for="field-7" class="control-label">Password</label>
+                                                    <input type="password" class="form-control" name="password" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mt-3">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="customRadio1" name="is_user" value="1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="customRadio1">Admin User</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="customRadio2" name="is_user" value="2" class="custom-control-input">
+                                                        <label class="custom-control-label" for="customRadio2">Client User</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" data-insert="user-insert-button">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <!-- end modal-->
+
+
+
+                        <!-- User Edit Modal-->
+
+                        <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="UserEditModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="UserEditModalLabel">Edit User</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="">
+                                        
+                                        <input type="hidden" name="id">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="field-1" class="control-label">Name</label>
+                                                    <input type="text" class="form-control" name="name" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="field-2" class="control-label">Surname</label>
+                                                    <input type="text" class="form-control" name="surname" placeholder="">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group no-margin">
+                                                    <label for="field-7" class="control-label">Email</label>
+                                                    <input type="email" class="form-control" name="email" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group no-margin">
+                                                    <label for="field-7" class="control-label">Password</label>
+                                                    <input type="password" class="form-control" name="password" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mt-3">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="userEditRadio1" name="is_user" value="1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="userEditRadio1">Admin User</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="userEditRadio2" name="is_user" value="2" class="custom-control-input">
+                                                        <label class="custom-control-label" for="userEditRadio2">Client User</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" data-control="user-update-button">Update</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <!-- end modal-->
+
                     <div class="bg-light rounded h-100 p-4">
                         <h6 class="mb-4">All users</h6>
                         <div class="table-responsive">
@@ -153,12 +305,22 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-   
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+     <!-- Template Javascript -->
+     <script src="js/main.js"></script>
     <script>
         let userList = document.querySelector('#body')
+        let $user_insert_modal = $('#userInsertModal');
+        let $user_edit_modal = $('#userEditModal');
+
         $(document).ready(function(){
 	        fetchUsers()
 	        fetchUser()
@@ -187,10 +349,62 @@
 	 	 	//console.log(item.name)
 
 	 	 	let tr = document.createElement('tr')
-			tr.innerHTML = "<th scope='row'>"+item.id+"</th><td>"+item.name+"</td><td>"+item.surname+"</td><td>"+item.email+"</td><td>"+item.created_at+"</td><td><button class='btn btn-success' data-click='edit' data-id='"+item.id+"'>Edit</button>  <button class='btn btn-danger' data-click='delete' data-id='"+item.id+"'>Delete</button></td>"
+			tr.innerHTML = "<th scope='row'>"+item.id+"</th><td>"+item.name+"</td><td>"+item.surname+"</td><td>"+item.email+"</td><td>"+item.created_at+"</td><td><button class='btn btn-success' data-toggle='modal' data-target='#userEditModal' data-con='edit' data-ids='"+item.id+"' data-urls='http://127.0.0.1:8000/api/v1/users/"+item.id+"'>Edit</button>  <button class='btn btn-danger' data-click='delete' data-url='http://127.0.0.1:8000/api/v1/users/"+item.id+"' data-id='"+item.id+"'>Delete</button></td>"
 	 		userList.append(tr)
 	 	 })
 	 }
+
+     // ADD USER
+     
+
+     $(document.body).on('click','[data-insert="user-insert-button"]', function(){
+        const token = localStorage.getItem("token");
+            $.ajax({
+                method: 'POST',
+                url: 'http://127.0.0.1:8000/api/v1/users',
+                headers: {
+	 			    'Authorization' : `Bearer ${token}`,
+	 		    },
+                data: {
+                    name: $user_insert_modal.find('[name="name"]').val(),
+                    surname: $user_insert_modal.find('[name="surname"]').val(),
+                    email: $user_insert_modal.find('[name="email"]').val(),
+                    password: $user_insert_modal.find('[name="password"]').val(),
+                    is_user: $user_insert_modal.find('[name="is_user"]:checked').val(),
+                 
+                },
+                success: function(response){
+                    
+                    console.log(response)
+                    if(response.status){
+                        Swal.fire(
+                            'Notification',
+                            response.message,
+                            'success'
+                        ).then(($result) => {
+                            $user_insert_modal.modal('hide')
+                            setTimeout(function() {
+                            window.location.href='index.html'
+                         }, 500);
+                            //fetchUsers();
+                        })
+                    }else{
+                        Swal.fire(
+                            response.message,
+                            response.data,
+                            'error'
+                        ).then(($result) => {
+                            $user_insert_modal.modal('hide')
+                            setTimeout(function() {
+                            window.location.href='index.html'
+                         }, 500);
+                            //fetchUsers();
+                        })
+                       
+                    }
+                }
+            })
+        })
 
 	 // GET USER LOGIN
    
@@ -208,16 +422,107 @@
 	 	
 	 }
 
-     $(document.body).on('click', '[data-click="edit"]', function(){
-        alert($(this).data('id'))
+     $(document.body).on('click', '[data-con="edit"]', function(){
+        //alert("Edit "+$(this).data('ids'))
+        const token = localStorage.getItem("token");
+        $.ajax({
+            method: 'GET',
+                url: $(this).data('urls'),
+                headers: {
+	 			    'Authorization' : `Bearer ${token}`,
+	 		    },
+                success: function(response) {
+                    console.log(response);
+                    $user_edit_modal.find('[name="id"]').val(response.data.id)
+                    $user_edit_modal.find('[name="name"]').val(response.data.name)
+                    $user_edit_modal.find('[name="surname"]').val(response.data.surname)
+                    $user_edit_modal.find('[name="email"]').val(response.data.email)
+                    $user_edit_modal.find('[name="password"]').val(response.data.password)
+                    if(response.data.is_user==1)
+                        $user_edit_modal.find("#userEditRadio1").attr('checked', true)
+                    else
+                        $user_edit_modal.find("#userEditRadio2").attr('checked',true)
+
+                        $user_edit_modal.modal('show')
+                }
+            })
      })
+
+     //UPDATE
+
+     $(document.body).on('click', '[data-control="user-update-button"]', function() {
+        let user_id = $user_edit_modal.find('[name="id"]').val()
+        //alert(user_id)
+        const token = localStorage.getItem("token");
+            $.ajax({
+                method: 'PUT',
+                url: `http://127.0.0.1:8000/api/v1/users/${user_id}`,
+                headers: {
+	 			    'Authorization' : `Bearer ${token}`,
+	 		    },
+                data: {
+                    id: $user_edit_modal.find('[name="id"]').val(),
+                    name: $user_edit_modal.find('[name="name"]').val(),
+                    surname: $user_edit_modal.find('[name="surname"]').val(),
+                    email: $user_edit_modal.find('[name="email"]').val(),
+                    password: $user_edit_modal.find('[name="password"]').val(),
+                    is_user: $user_edit_modal.find('[name="is_user"]:checked').val(),
+                },
+                success: function(response) {
+                    console.log(response);
+                    if (response.status) {
+                        Swal.fire(
+                            'Notification',
+                            response.message,
+                            'success'
+                        ).then((result) => {
+                            if (result.value) {
+                                $user_edit_modal.modal('hide')
+                                setTimeout(function() {
+                            window.location.href='index.html'
+                         }, 500);
+                            }
+                        })
+                    } else {
+                        Swal.fire(
+                            response.message,
+                            response.data,
+                            'error'
+                        )
+                    }
+                }
+            });
+        })
 
     
+//DELETE
 
      $(document.body).on('click', '[data-click="delete"]', function(){
-        let id = $(this).data('id')
-        alert(id)
-     })
+           //alert("Delete "+$(this).data('id'))
+           const token = localStorage.getItem("token");
+            $.ajax({
+                url:$(this).data('url'),
+                method: 'DELETE',
+                data: {id : $(this).data('id')},
+                headers: {
+	 			    'Authorization' : `Bearer ${token}`,
+	 		    },
+                success: function(res){
+                    console.log(res);
+                    if(res.status){
+                        Swal.fire(
+                            'Notification',
+                            res.message,
+                            'success'
+                        )
+                        setTimeout(function() {
+                            window.location.href='index.html'
+                         }, 500);
+                        //fetchUsers();
+                    }
+                }
+            });
+        });
 
      $(document.body).on('click', '[data-click="storage_delete"]', function(){
         const token = localStorage.getItem("token");
